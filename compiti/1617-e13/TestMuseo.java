@@ -121,10 +121,10 @@ public class TestMuseoo {
 					StampaDipinti(opere);
 					StampaSculture(opere);
 					break;
+				case "3":
+					CercaOpere(opere);
+					break;
 				}
-				// case 3:
-					// CercaOpere(opere);
-					// break;
 		}
 		while(true);
 	}
@@ -194,6 +194,31 @@ public class TestMuseoo {
 			System.out.println("\tAltezza:"+((Scultura)s).GetAltezza());
 		}
 	}
+
+	public static void CercaOpere(List<Opera> opere) {
+		Scanner keyboard = new Scanner(System.in);
+		while(true) {
+			System.out.println("inserisci titolo dell'opera");
+			String titoloOpera = keyboard.nextLine();
+
+			for(Opera s:opere){
+				if(s.GetTitolo().equalsIgnoreCase(titoloOpera)) {
+					if(s.getClass().getName().equalsIgnoreCase("dipinto")) {
+						System.out.println("Titolo: "+s.GetTitolo());
+						System.out.println("\tAutore "+s.GetAutore());
+						System.out.println("\tData di Creazione: "+s.GetdatadiCreazione());
+						System.out.println("\tTecnica:"+((Dipinto) s).GetTecnica());
+						System.out.println("\tDimensioni:"+((Dipinto) s).GetDimensione());
+					}
+					else {
+						System.out.println("Titolo: "+s.GetTitolo());
+						System.out.println("\tAutore "+s.GetAutore());
+						System.out.println("\tData di Creazione: "+s.GetdatadiCreazione());
+						System.out.println("\tMateriale:"+((Scultura)s).GetMateriale());
+						System.out.println("\tAltezza:"+((Scultura)s).GetAltezza());
+					}
+				}
+			}
+		}
+	}
 }
-
-
